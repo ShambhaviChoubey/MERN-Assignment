@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group.error input, .form-group.error select {
+            border-color: red;
+            background: #fddede;
+        }
+        .form-group .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        .form-group .error-icon {
+            position: absolute;
+            right: 10px;
+            top: 37px;
+            color: red;
+            display: none;
+        }
+        button {
+            width: 100%;
+            background: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form id="validationForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <span class="error-icon">⚠</span>
+                <div class="error-message">Name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <span class="error-icon">⚠</span>
+                <div class="error-message">Email is required</div>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+                <span class="error-icon">⚠</span>
+                <div class="error-message">Password is required</div>
+            </div>
+
+            <div class="form-group">
+                <label>Hobbies</label>
+                <select id="hobbies">
+                    <option value="">Select your hobby</option>
+                    <option value="reading">Reading</option>
+                    <option value="sports">Sports</option>
+                    <option value="music">Music</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("validationForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let isValid = true;
+            let inputs = document.querySelectorAll(".form-group input");
+
+            inputs.forEach(input => {
+                let parent = input.parentElement;
+                let errorMessage = parent.querySelector(".error-message");
+                let errorIcon = parent.querySelector(".error-icon");
+
+                if (input.value.trim() === "") {
+                    parent.classList.add("error");
+                    errorMessage.style.display = "block";
+                    errorIcon.style.display = "block";
+                    isValid = false;
+                } else {
+                    parent.classList.remove("error");
+                    errorMessage.style.display = "none";
+                    errorIcon.style.display = "none";
+                }
+            });
+
+            if (isValid) {
+                alert("Form submitted successfully!");
+            }
+        });
+    </script>
+
+</body>
+</html>

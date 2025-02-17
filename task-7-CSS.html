@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8b2d45;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #5a1e2e;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .container input, .container select, .container textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .container input[type="radio"] {
+            width: auto;
+            margin-left: 10px;
+        }
+
+        .gender-group {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .gender-group label {
+            margin-left: 5px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form>
+            <label>Name:</label>
+            <input type="text" placeholder="your name">
+
+            <label>Email:</label>
+            <input type="email" placeholder="your email">
+
+            <label>Password:</label>
+            <input type="password">
+
+            <label>Phone Number:</label>
+            <input type="text">
+
+            <label>Gender:</label>
+            <div class="gender-group">
+                Male: <input type="radio" name="gender">
+                Female: <input type="radio" name="gender">
+                Other: <input type="radio" name="gender">
+            </div>
+
+            <label>Language:</label>
+            <select>
+                <option>Select language</option>
+                <option>English</option>
+                <option>Spanish</option>
+                <option>French</option>
+            </select>
+
+            <label>Zip Code:</label>
+            <input type="text">
+
+            <label>About:</label>
+            <textarea placeholder="Write about yourself..."></textarea>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+</body>
+</html>

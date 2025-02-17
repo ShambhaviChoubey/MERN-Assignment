@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+        .container {
+            width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 35px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group i {
+            position: absolute;
+            left: 10px;
+            top: 36px;
+            color: gray;
+        }
+        .error input {
+            border-color: #b71c1c;
+            background: #fddede;
+        }
+        .error i {
+            color: #b71c1c;
+        }
+        .error .error-text {
+            color: #b71c1c;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .error .close-icon {
+            position: absolute;
+            right: 10px;
+            top: 36px;
+            color: #b71c1c;
+            cursor: pointer;
+        }
+        button {
+            width: 100%;
+            background: orange;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form id="form">
+            <div class="form-group">
+                <label>First Name</label>
+                <i class="fa fa-user"></i>
+                <input type="text" id="firstName" placeholder="First Name">
+                <span class="close-icon" style="display: none;">✖</span>
+                <div class="error-text" style="display: none;">Please supply your first name</div>
+            </div>
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <i class="fa fa-user"></i>
+                <input type="text" id="lastName" placeholder="Last Name">
+                <span class="close-icon" style="display: none;">✖</span>
+                <div class="error-text" style="display: none;">Please supply your last name</div>
+            </div>
+
+            <div class="form-group">
+                <label>E-Mail</label>
+                <i class="fa fa-envelope"></i>
+                <input type="email" id="email" placeholder="E-Mail Address">
+                <span class="close-icon" style="display: none;">✖</span>
+                <div class="error-text" style="display: none;">Please supply your email address</div>
+            </div>
+
+            <div class="form-group">
+                <label>Phone #</label>
+                <i class="fa fa-phone"></i>
+                <input type="text" id="phone" placeholder="(845)555-1212">
+                <span class="close-icon" style="display: none;">✖</span>
+                <div class="error-text" style="display: none;">Please supply your phone number</div>
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <i class="fa fa-home"></i>
+                <input type="text" id="address" placeholder="Address">
+                <span class="close-icon" style="display: none;">✖</span>
+                <div class="error-text" style="display: none;">Please supply your street address</div>
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+                <i class="fa fa-building"></i>
+                <input type="text" id="city" placeholder="City">
+                <span class="close-icon" style="display: none;">✖</span>
+                <div class="error-text" style="display: none;">Please supply your city</div>
+            </div>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let inputs = document.querySelectorAll(".form-group input");
+
+            inputs.forEach(input => {
+                let parent = input.parentElement;
+                let errorText = parent.querySelector(".error-text");
+                let closeIcon = parent.querySelector(".close-icon");
+
+                if (input.value.trim() === "") {
+                    parent.classList.add("error");
+                    errorText.style.display = "block";
+                    closeIcon.style.display = "block";
+                } else {
+                    parent.classList.remove("error");
+                    errorText.style.display = "none";
+                    closeIcon.style.display = "none";
+                }
+            });
+        });
+
+        document.querySelectorAll(".close-icon").forEach(icon => {
+            icon.addEventListener("click", function () {
+                let parent = this.parentElement;
+                let input = parent.querySelector("input");
+                let errorText = parent.querySelector(".error-text");
+
+                input.value = "";
+                parent.classList.remove("error");
+                errorText.style.display = "none";
+                this.style.display = "none";
+            });
+        });
+    </script>
+
+</body>
+</html>

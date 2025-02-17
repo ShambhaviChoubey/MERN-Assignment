@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoverable Sidenav Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: white;
+        }
+
+        .container {
+            border: 2px solid black;
+            width: 80%;
+            height: 80vh;
+            padding: 20px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        .sidenav {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidenav a {
+            text-decoration: none;
+            width: 60px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+            margin-bottom: 10px; /* Adds spacing between buttons */
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .sidenav a span {
+            position: absolute;
+            left: 100%;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            display: none;
+            white-space: nowrap;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .sidenav a:hover {
+            width: 150px;
+            justify-content: flex-start;
+            padding-left: 10px;
+        }
+
+        .sidenav a:hover span {
+            display: block;
+        }
+
+        .green { background-color: #009245; }
+        .blue { background-color: #007BFF; }
+        .red { background-color: #DC3545; }
+        .gray { background-color: #343A40; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidenav">
+            <a href="#" class="green"><span>Green Button</span></a>
+            <a href="#" class="blue"><span>Blue Button</span></a>
+            <a href="#" class="red"><span>Red Button</span></a>
+            <a href="#" class="gray"><span>Gray Button</span></a>
+        </div>
+        <h1><strong>Hoverable Sidenav Buttons</strong></h1>
+        <p>Hover over the buttons in the left side navigation to open them.</p>
+    </div>
+</body>
+</html>
