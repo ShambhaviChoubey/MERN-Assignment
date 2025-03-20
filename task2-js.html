@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabetical Order Sorter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Alphabetical Order Sorter</h2>
+        <input type="text" id="textInput" placeholder="Enter a string">
+        <button onclick="sortAlphabetically()">Sort Letters</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function sortAlphabetically() {
+            const inputElement = document.getElementById("textInput");
+            const resultElement = document.getElementById("result");
+
+            let str = inputElement.value.trim();
+
+            if (!str) {
+                resultElement.innerText = "Please enter a valid string!";
+                resultElement.style.color = "red";
+                return;
+            }
+
+            let sortedStr = str.toLowerCase().split('').sort().join('');
+            resultElement.innerText = `Sorted String: ${sortedStr}`;
+            resultElement.style.color = "#333";
+        }
+    </script>
+
+</body>
+</html>

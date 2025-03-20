@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication & Division Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 48%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Multiplication & Division</h2>
+        <input type="number" id="num1" placeholder="Enter 1st number">
+        <input type="number" id="num2" placeholder="Enter 2nd number">
+        <div class="buttons">
+            <button onclick="calculate('multiply')">Multiply</button>
+            <button onclick="calculate('divide')">Divide</button>
+        </div>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const resultElement = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultElement.innerText = "Please enter valid numbers!";
+                resultElement.style.color = "red";
+                return;
+            }
+
+            let result;
+            if (operation === "multiply") {
+                result = num1 * num2;
+            } else if (operation === "divide") {
+                if (num2 === 0) {
+                    resultElement.innerText = "Cannot divide by zero!";
+                    resultElement.style.color = "red";
+                    return;
+                }
+                result = num1 / num2;
+            }
+
+            resultElement.innerText = `The Result Is: ${result}`;
+            resultElement.style.color = "#333";
+        }
+    </script>
+
+</body>
+</html>

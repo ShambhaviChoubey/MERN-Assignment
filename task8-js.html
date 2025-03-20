@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            text-align: center;
+        }
+        h2 {
+            color: blue;
+        }
+        form {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .poor {
+            color: red;
+            font-weight: bold;
+            float: right;
+        }
+        .gender {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+        .languages {
+            text-align: left;
+        }
+        .register-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .register-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form>
+        <label>First Name <span class="poor">POOR</span></label>
+        <input type="text" name="firstname">
+
+        <label>Last Name <span class="poor">POOR</span></label>
+        <input type="text" name="lastname">
+
+        <label>Email <span class="poor">POOR</span></label>
+        <input type="email" name="email">
+
+        <label>Password <span class="poor">POOR</span></label>
+        <input type="password" name="password">
+
+        <label>Re-enter Password <span class="poor">POOR OR MISMATCH</span></label>
+        <input type="password" name="repassword">
+
+        <label>Gender</label>
+        <div class="gender">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female" style="margin-left: 20px;"> Female
+        </div>
+
+        <label>Age <span class="poor">POOR</span></label>
+        <input type="number" name="age">
+
+        <label>Phone Number <span class="poor">POOR</span></label>
+        <input type="tel" name="phone">
+
+        <label>Address <span class="poor">POOR</span></label>
+        <textarea name="address" rows="3"></textarea>
+
+        <label>State <span class="poor">POOR</span></label>
+        <input type="text" name="state">
+
+        <label>Country</label>
+        <select name="country">
+            <option>Choose your country</option>
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+            <option>Canada</option>
+        </select>
+
+        <label>Languages Known</label>
+        <div class="languages">
+            <input type="checkbox" name="language" value="English"> English
+            <input type="checkbox" name="language" value="Kannada"> Kannada
+            <input type="checkbox" name="language" value="Hindi"> Hindi
+            <input type="checkbox" name="language" value="Telugu"> Telugu
+        </div>
+
+        <br>
+        <input type="checkbox" required> Hereby I declare all the given details are true
+
+        <br><br>
+        <button type="submit" class="register-btn">REGISTER</button>
+    </form>
+
+    <br>
+    Log in to <a href="#">Ethnus</a> website
+
+</body>
+</html>
